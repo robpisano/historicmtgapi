@@ -1,0 +1,24 @@
+<main>
+    <h1>Standings</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Year</th>
+                <th>ELO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% decks.forEach(deck => { %>
+                <tr>
+                    <td><a href="/deck?id=<%= deck.externalId %>"><%= deck.name %></a></td>
+                    <td><%= deck.year %></td>
+                    <td><%= deck.elo %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <form action="/" method="GET">
+        <input type="submit" value="Back">
+    </form>
+</main>

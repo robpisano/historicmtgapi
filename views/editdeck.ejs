@@ -1,0 +1,27 @@
+<main>
+<h2>Edit Deck - <%= deck.name %></h2>
+
+<form action="/editdeck" method="POST">
+  <label for="name" >Name</label><br>
+  <input type="text" id="name" name="name" class="textInput" value="<%= deck.name %>" required>
+  <br>
+  <label for="year" >Year</label><br>
+  <input type="number" name="year" class="textInput"  value="<%= deck.year %>">
+  <br>
+  <label for="decklist" >Decklist</label><br>
+  <textarea rows = "25" cols = "60" name = "decklist"><%= deck.decklist %></textarea>
+    <br>
+    <label for="external ID" >External ID</label><br>
+    <input type="text" name="externalId" class="textInput" value="<%= deck.externalId %>">
+    <br>
+  <input type="hidden" id="deckId" name="deckId" value="<%= deck._id %>">
+  <input type="submit" value="Submit">
+</form>
+
+<a href="/deletedeck?id=<%= deck._id %>" class="button"><button type="button">Delete <%= deck.name %></button></a>
+
+<form action="/decks" method="GET">
+    <input type="submit" value="Back">
+</form>
+
+</main>

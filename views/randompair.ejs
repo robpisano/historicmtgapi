@@ -1,0 +1,25 @@
+<main>
+    <h1>Log result</h1>
+
+    <form action="/logresult" method="POST">
+        <div>
+            <label for="wdeck" >Winning Deck</label><br>
+            <input type="radio" id="opt1" name="wdeck" value="<%= pairedDecks[0].externalId %>">
+            <label for="opt1"><a href="/deck?id=<%= pairedDecks[0].externalId %>"><%= pairedDecks[0].name %></a></label><br>
+            <input type="radio" id="opt2" name="wdeck" value="<%= pairedDecks[1].externalId %>">
+            <label for="opt1"><a href="/deck?id=<%= pairedDecks[1].externalId %>"><%= pairedDecks[1].name %></a></label><br>
+        </div>
+        <label for="deck1win">Was it 2-0?</label>
+        <input type="checkbox" name="was20"/><br>
+        <input type="hidden" name="randomdecks" value="<%= pairedDecks[0].externalId %>;<%= pairedDecks[1].externalId %>"/>
+        <input type="submit" value="Submit">
+    </form>
+
+    <form action="/randompair" method="GET">
+        <input type="submit" value="Generate another pair">
+    </form>
+    
+    <form action="/" method="GET">
+        <input type="submit" value="Back">
+    </form>
+</main>

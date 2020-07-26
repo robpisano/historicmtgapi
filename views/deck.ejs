@@ -1,0 +1,55 @@
+<main>
+    <h2><%= deck.name %></h2>
+
+    <br>
+    <div>
+        Elo: <%= deck.elo %>  Record: <%= wins %> - <%= losses %>
+    </div>
+
+
+    <div>
+        <h4>Decklist</h4>
+        <br>
+        <div>
+            <%= deck.decklist %>
+        </div>
+    </div>
+
+    <div>
+        <h4>Results</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Opponent</th>
+                    <th>Result</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach(result => { %>
+                    <% if (result.winningDeck == deck.externalId) { %>
+                        <td><a href="/deck?id=<%= result.losingDeck %>"><%= result.losingDeck %></a></td>
+                        <td><span style="color:green;">W <% if (result.was20) { %> 2-0
+                        <%} else { %> 2-1
+                        <% } %></span></td>
+                        <td><%= moment(result.date).format('MM/DD/YYYY') %></td>
+                    <%} else { %>
+                        <td><a href="/deck?id=<%= result.winningDeck %>"><%= result.winningDeck %></a></td>
+                        <td><span style="color:red;">L <% if (result.was20) { %> 0-2
+                        <%} else { %> 1-2
+                        <% } %></span></td>
+                        <td><%= moment(result.date).format('MM/DD/YYYY') %></td>
+                    <% } %> 
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    
+    <form action="/decks" method="GET">
+        <input type="submit" value="Decks">
+    </form>
+    <form action="/standings" method="GET">
+        <input type="submit" value="Standings">
+    </form>
+    
+    </main>

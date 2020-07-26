@@ -1,0 +1,29 @@
+<main>
+    <h1>Log a result</h1>
+
+    <form action="/logresult" method="POST">
+        <div>
+            <label for="wdeck" >Winning Deck</label><br>
+            <select name="wdeck" id="wdeckselect">
+                <% decks.forEach(deck => { %>
+                    <option value="<%= deck.externalId %>"><%= deck.year %> - <%= deck.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="ldeck" >Losing Deck</label><br>
+            <select name="ldeck" id="ldeckselect">
+                <% decks.forEach(deck => { %>
+                        <option value="<%= deck.externalId %>"><%= deck.year %> - <%= deck.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <label for="deck1win">Was it 2-0?</label>
+        <input type="checkbox" name="was20"/><br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <form action="/" method="GET">
+        <input type="submit" value="Back">
+    </form>
+</main>
