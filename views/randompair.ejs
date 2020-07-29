@@ -5,9 +5,9 @@
         <div>
             <label for="wdeck" >Winning Deck</label><br>
             <input type="radio" id="opt1" name="wdeck" value="<%= pairedDecks[0].externalId %>">
-            <label for="opt1"><a href="/deck?id=<%= pairedDecks[0].externalId %>"><%= pairedDecks[0].name %></a></label><br>
+            <label for="opt1"><a href="/deck?id=<%= pairedDecks[0].externalId %>"><%= pairedDecks[0].name %></a> - <%= pairedDecks[0].elo %> (<%= pairedDecks[0].wins %> - <%= pairedDecks[0].losses %>)</label><br>
             <input type="radio" id="opt2" name="wdeck" value="<%= pairedDecks[1].externalId %>">
-            <label for="opt1"><a href="/deck?id=<%= pairedDecks[1].externalId %>"><%= pairedDecks[1].name %></a></label><br>
+            <label for="opt1"><a href="/deck?id=<%= pairedDecks[1].externalId %>"><%= pairedDecks[1].name %></a> - <%= pairedDecks[1].elo %> (<%= pairedDecks[1].wins %> - <%= pairedDecks[1].losses %>)</label><br>
         </div>
         <label for="deck1win">Was it 2-0?</label>
         <input type="checkbox" name="was20"/><br>

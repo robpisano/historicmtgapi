@@ -5,7 +5,10 @@
             <tr>
                 <th>Name</th>
                 <th>Year</th>
+                <th>Archetype</th>
+                <th>Colors</th>
                 <th>ELO</th>
+                <th>Record</th>
             </tr>
         </thead>
         <tbody>
@@ -13,7 +16,10 @@
                 <tr>
                     <td><a href="/deck?id=<%= deck.externalId %>"><%= deck.name %></a></td>
                     <td><%= deck.year %></td>
+                    <td><%= deck.archetype %></td>
+                    <td><%- deck.colors %></td>
                     <td><%= deck.elo %></td>
+                    <td><%= deck.wins %> - <%= deck.losses %></td>
                 </tr>
             <% }) %>
         </tbody>

@@ -10,6 +10,8 @@
             <tr>
                 <th>Name</th>
                 <th>Year</th>
+                <th>Archetype</th>
+                <th>Colors</th>
                 <th></th>
             </tr>
         </thead>
@@ -18,6 +20,8 @@
                 <tr>
                     <td><a href="/deck?id=<%= deck.externalId %>"><%= deck.name %></a></td>
                     <td><%= deck.year %></td>
+                    <td><%= deck.archetype %></td>
+                    <td><%- deck.colors %></td>
                     <td><a href="/editdeck?id=<%= deck.externalId %>">Edit</a></td>
                 </tr>
             <% }) %>

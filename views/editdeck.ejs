@@ -11,6 +11,12 @@
   <label for="decklist" >Decklist</label><br>
   <textarea rows = "25" cols = "60" name = "decklist"><%= deck.decklist %></textarea>
     <br>
+    <label for="colors" >Colors</label><br>
+    <input type="text" name="colors" class="textInput" value="<%= deck.colors %>">
+    <br>
+    <label for="archetype" >Archetype</label><br>
+    <input type="text" name="archetype" class="textInput" value="<%= deck.archetype %>">
+    <br>
     <label for="external ID" >External ID</label><br>
     <input type="text" name="externalId" class="textInput" value="<%= deck.externalId %>">
     <br>

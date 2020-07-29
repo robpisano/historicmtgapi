@@ -3,7 +3,7 @@
 
     <br>
     <div>
-        Elo: <%= deck.elo %>  Record: <%= wins %> - <%= losses %>
+        Elo: <%= deck.elo %>  Record: <%= deck.wins %> - <%= deck.losses %>
     </div>
 
 
@@ -27,6 +27,7 @@
             </thead>
             <tbody>
                 <% results.forEach(result => { %>
+                    <tr>
                     <% if (result.winningDeck == deck.externalId) { %>
                         <td><a href="/deck?id=<%= result.losingDeck %>"><%= result.losingDeck %></a></td>
                         <td><span style="color:green;">W <% if (result.was20) { %> 2-0
@@ -40,6 +41,7 @@
                         <% } %></span></td>
                         <td><%= moment(result.date).format('MM/DD/YYYY') %></td>
                     <% } %> 
+                    </tr>
                 <% }) %>
             </tbody>
         </table>

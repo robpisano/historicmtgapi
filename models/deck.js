@@ -7,7 +7,11 @@ const DeckSchema = mongoose.Schema({
     externalId: String,
     decklist: String,
     year: Number,
-    elo: Number
+    elo: Number,
+    wins: Number,
+    losses: Number,
+    colors: String,
+    archetype: String
 });
 
 Deck = mongoose.model('Deck', DeckSchema, 'decks');
