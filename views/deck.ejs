@@ -5,14 +5,14 @@
     <div>
         Elo: <%= deck.elo %>  Record: <%= deck.wins %> - <%= deck.losses %>
     </div>
+    <div>
+        <h4><%= deck.archetype %> <%- deck.colors %></h4>
+    </div>
 
 
     <div>
-        <h4>Decklist</h4>
-        <br>
-        <div>
-            <%= deck.decklist %>
-        </div>
+        <h3>Decklist</h4>
+        <textarea rows = "25" cols = "60" name = "decklist" readonly="true"><%= deck.decklist %></textarea>
     </div>
 
     <div>
