@@ -157,8 +157,16 @@ module.exports = function(app){
     });
 
     app.get("/resultsapi", async(req, res) => {
-        const results = await Result.find({}).sort({date: "desc"});
+        if (req.query == null || req.query.id == null) {
+            res.send(await Result.find({}).sort({date: "desc"}));
+        } else {
+            res.send( await Result.find({ $or: [ {"winningDeck": req.query.id}, {"losingDeck": req.query.id}]}).sort({date: "asc"}));
+        }
+    });
 
-        res.send(results);
+    app.get("/deckapi", async(req, res) => {
+        var deck = await Deck.findOne({externalId: req.query.id});
+
+        res.send(deck);
     });
 }
