@@ -11,7 +11,11 @@ const DeckSchema = mongoose.Schema({
     wins: Number,
     losses: Number,
     colors: String,
-    archetype: String
+    archetype: String,
+    isActive: {
+        type: Boolean,
+        default: true
+    }
 });
 
 Deck = mongoose.model('Deck', DeckSchema, 'decks');

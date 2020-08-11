@@ -151,7 +151,7 @@ module.exports = function(app){
     });
 
     app.get("/standingsapi", async(req, res) => {
-        const decks = await Deck.find({}).sort({elo: "desc"});
+        const decks = await Deck.find({isActive: true}).sort({elo: "desc"});
 
         res.send(decks);
     });
@@ -160,7 +160,7 @@ module.exports = function(app){
         if (req.query == null || req.query.id == null) {
             res.send(await Result.find({}).sort({date: "desc"}));
         } else {
-            res.send( await Result.find({ $or: [ {"winningDeck": req.query.id}, {"losingDeck": req.query.id}]}).sort({date: "asc"}));
+            res.send( await Result.find({ $or: [ {"winningDeck": req.query.id}, {"losingDeck": req.query.id}]}).sort({date: "desc"}));
         }
     });
 

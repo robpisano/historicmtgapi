@@ -2,7 +2,7 @@ module.exports = function(app) {
     const pairing = require("../controllers/pairing");
 
     app.get("/randompairapi", async(req, res) => {
-        const decks = await Deck.find({}).sort({"elo": "desc"});
+        const decks = await Deck.find({isActive: true}).sort({"elo": "desc"});
 
         var pairedDecks;
 
@@ -12,7 +12,7 @@ module.exports = function(app) {
     });
 
     app.get("/randompair", async (req, res) => {
-        const decks = await Deck.find({}).sort({"elo": "desc"});
+        const decks = await Deck.find({isActive: true}).sort({"elo": "desc"});
 
         var pairedDecks;
 
