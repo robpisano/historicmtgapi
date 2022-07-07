@@ -16,7 +16,7 @@
     "fs": "^0.0.1-security",
     "ejs": "^3.1.3",
     "body-parser": "1.19.0",
-    "moment":"2.27.0"
+    "moment":"2.29.4"
   },
   "keywords": [
     "magic"
